@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { RecoilRoot } from "recoil";
 import { ThemeProvider } from "styled-components";
+import { QueryClient, QueryClientProvider } from "react-query";
 import App from "./App";
 
 import { createGlobalStyle } from "styled-components";
@@ -71,14 +72,17 @@ a {
   color:inherit;
 }
 `;
+
+const client = new QueryClient();
+
 ReactDOM.render(
-  <React.StrictMode>
-    <RecoilRoot>
+  <RecoilRoot>
+    <QueryClientProvider client={client}>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <App />
       </ThemeProvider>
-    </RecoilRoot>
-  </React.StrictMode>,
+    </QueryClientProvider>
+  </RecoilRoot>,
   document.getElementById("root")
 );
