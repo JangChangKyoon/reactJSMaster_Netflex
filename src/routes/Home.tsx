@@ -57,18 +57,13 @@ function Home() {
     ["movies", "nowPlaying"],
     getMovies
   );
-  const [index, setIndex] = useState(0);
-  const incraseIndex = () => setIndex((prev) => prev + 1);
   return (
     <Wrapper>
       {isLoading ? (
         <Loader>Loading...</Loader>
       ) : (
         <>
-          <Banner
-            onClick={incraseIndex}
-            bgPhoto={makeImagePath(data?.results[0].backdrop_path || "")}
-          >
+          <Banner bgPhoto={makeImagePath(data?.results[0].backdrop_path || "")}>
             <Title>{data?.results[0].title}</Title>
             <Overview>{data?.results[0].overview}</Overview>
           </Banner>
