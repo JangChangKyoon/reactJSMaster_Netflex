@@ -1,5 +1,6 @@
 import { useQuery } from "react-query";
 import styled from "styled-components";
+
 import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { getMovies, IGetMoviesResult } from "../api";
 import { makeImagePath } from "../utils";
